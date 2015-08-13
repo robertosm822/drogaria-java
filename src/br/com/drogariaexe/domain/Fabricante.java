@@ -23,5 +23,10 @@ public class Fabricante {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	
+	public String toString(){
+		String saida = codigo + " - "+descricao;
+		return saida;
+	}
 
 }
