@@ -23,6 +23,10 @@ public class FabricanteDAO {
 		
 		/* executar o comando */
 		comando.executeUpdate();
+		
+		
+		//fechando a conexao para liberar memoria
+		conexao.close();
 	}
 	
 	public  void excluir(Fabricante f) throws SQLException{
@@ -37,6 +41,9 @@ public class FabricanteDAO {
 		
 		/* executar o comando */
 		comando.executeUpdate();
+		
+		//fechando a conexao para liberar memoria
+		conexao.close();
 	}  
 	
 	public void editar(Fabricante f) throws SQLException{
@@ -52,6 +59,9 @@ public class FabricanteDAO {
 		comando.setLong(2, f.getCodigo());
 		
 		comando.executeUpdate();
+		
+		//fechando a conexao para liberar memoria
+		conexao.close();
 	}
 	
 	public Fabricante buscarPorCodigo(Fabricante f) throws SQLException{
@@ -75,6 +85,8 @@ public class FabricanteDAO {
 			retorno.setCodigo(resultado.getLong("codigo"));
 			retorno.setDescricao(resultado.getString("descricao"));
 		}
+		//fechando a conexao para liberar memoria
+		conexao.close();
 		
 		return retorno;
 	}
@@ -83,15 +95,13 @@ public class FabricanteDAO {
 	 * METODO DE DEPURACAO - OK
 	 * */
 	public static void main(String[] args) {
-
-			/*
-			 * 
+		/*
 			//INCLUIDNO DADOS
 			Fabricante f1 = new Fabricante();
-			f1.setDescricao("DECRICAO 3");
+			f1.setDescricao("Curso Java com JSF");
 			
 			Fabricante f2 = new Fabricante();
-			f2.setDescricao("DECRICAO 4");
+			f2.setDescricao("Java Com Spring Love");
 			
 			FabricanteDAO fdao = new FabricanteDAO();
 			
@@ -142,7 +152,7 @@ public class FabricanteDAO {
 			System.out.println("Erro ao editar");
 			e.printStackTrace();
 		}
-		*/
+		
 		//RETORNANDO UM UNICO CONTEUDO CADASTRADO
 		Fabricante f1 = new Fabricante();
 		f1.setCodigo(2L);
@@ -154,11 +164,13 @@ public class FabricanteDAO {
 			
 			//imprimir o objeto
 			System.out.println("Resultado 1:  "+f3);
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Erro ao realizar consulta");
 			e.printStackTrace();
 		}
+		*/
 		
 	}
 	
